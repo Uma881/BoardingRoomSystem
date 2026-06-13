@@ -6,7 +6,15 @@ Public Class StudentDashboardForm
     Private allRooms As DataTable
 
     Private Sub StudentDashboardForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        ' Safety Check
+        If DBConnection.currentUser Is Nothing OrElse DBConnection.currentUser.Rows.Count = 0 Then
+            MessageBox.Show("Please login first!", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Me.Close()
+            Return
+        End If
+
         lblUserName.Text = "Welcome, " & DBConnection.currentUser.Rows(0)("name").ToString()
+
         LoadAvailableRooms()
         ApplyTheme()
     End Sub
@@ -56,13 +64,18 @@ Public Class StudentDashboardForm
     End Sub
 
     Private Sub LoadAvailableRooms()
-        Dim query As String = "SELECT r.room_id, r.title, r.price, r.location, r.description, r.rules, " &
-                             "r.avg_rating, r.total_reviews, u.name as owner_name, u.phone as owner_phone " &
-                             "FROM rooms r INNER JOIN users u ON r.owner_id = u.user_id " &
-                             "WHERE r.status = 'available' ORDER BY r.created_at DESC"
-        allRooms = DBConnection.ExecuteQuery(query)
-        ApplyFilters()
-        LoadLocations()
+        Try
+            Dim query As String = "SELECT r.room_id, r.title, r.price, r.location, r.description, r.rules, " &
+                                 "r.avg_rating, r.total_reviews, u.name as owner_name, u.phone as owner_phone " &
+                                 "FROM rooms r INNER JOIN users u ON r.owner_id = u.user_id " &
+                                 "WHERE r.status = 'available' ORDER BY r.created_at DESC"
+
+            allRooms = DBConnection.ExecuteQuery(query)
+            ApplyFilters()
+            LoadLocations()
+        Catch ex As Exception
+            MessageBox.Show("Error loading rooms: " & ex.Message)
+        End Try
     End Sub
 
     Private Sub LoadLocations()
@@ -76,12 +89,18 @@ Public Class StudentDashboardForm
     End Sub
 
     Private Sub ApplyFilters()
-        ' Filter logic...
-        Dim filtered As DataTable = allRooms.Clone()
-        ' ... (full filter code from earlier message)
-        dgvRooms.DataSource = filtered
+        ' TODO: Add full filter logic later
+        If allRooms IsNot Nothing Then
+            dgvRooms.DataSource = allRooms
+            If dgvRooms.Columns.Contains("room_id") Then dgvRooms.Columns("room_id").Visible = False
+        End If
     End Sub
 
-    ' Add other button events (btnViewDetails_Click, btnLogout_Click etc.) as per previous messages
+    Private Sub btnLogout_Click(sender As Object, e As EventArgs)
+        DBConnection.currentUser = Nothing
+        Me.Close()
+        Dim login As New LoginForm()
+        login.Show()
+    End Sub
 
 End Class

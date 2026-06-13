@@ -36,6 +36,7 @@ Partial Class StudentDashboardForm
         Me.btnViewReviews = New System.Windows.Forms.Button()
         Me.btnMyRequests = New System.Windows.Forms.Button()
         Me.btnLogout = New System.Windows.Forms.Button()
+        Me.Label1 = New System.Windows.Forms.Label()
         CType(Me.nudMaxPrice, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvRooms, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -195,12 +196,21 @@ Partial Class StudentDashboardForm
         Me.btnLogout.Text = "Logout"
         Me.btnLogout.UseVisualStyleBackColor = False
         '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(369, 36)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(0, 16)
+        Me.Label1.TabIndex = 16
+        '
         'StudentDashboardForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = Global.BoardingRoomSystem.My.Resources.Resources.Watercolor_Water_Sea_LinkedIn_Article_Cover_Image
         Me.ClientSize = New System.Drawing.Size(1018, 792)
+        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.btnLogout)
         Me.Controls.Add(Me.btnMyRequests)
         Me.Controls.Add(Me.btnViewReviews)
@@ -239,4 +249,5 @@ Partial Class StudentDashboardForm
     Friend WithEvents btnViewReviews As Button
     Friend WithEvents btnMyRequests As Button
     Friend WithEvents btnLogout As Button
+    Friend WithEvents Label1 As Label
 End Class
