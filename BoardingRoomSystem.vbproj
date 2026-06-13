@@ -129,16 +129,34 @@
       <DependentUpon>Form1.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\AddReviewForm.Designer.vb">
+      <DependentUpon>AddReviewForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AddReviewForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\AddRoomForm.Designer.vb">
       <DependentUpon>AddRoomForm.vb</DependentUpon>
     </Compile>
     <Compile Include="Forms\AddRoomForm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\AdminDashboard.Designer.vb">
+      <DependentUpon>AdminDashboard.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AdminDashboard.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\LoginForm.Designer.vb">
       <DependentUpon>LoginForm.vb</DependentUpon>
     </Compile>
     <Compile Include="Forms\LoginForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MyRequestsForm.Designer.vb">
+      <DependentUpon>MyRequestsForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MyRequestsForm.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\OwnerDashboard.Designer.vb">
@@ -184,11 +202,20 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Forms\AddReviewForm.resx">
+      <DependentUpon>AddReviewForm.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddRoomForm.resx">
       <DependentUpon>AddRoomForm.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AdminDashboard.resx">
+      <DependentUpon>AdminDashboard.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\LoginForm.resx">
       <DependentUpon>LoginForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MyRequestsForm.resx">
+      <DependentUpon>MyRequestsForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\OwnerDashboard.resx">
       <DependentUpon>OwnerDashboard.vb</DependentUpon>
