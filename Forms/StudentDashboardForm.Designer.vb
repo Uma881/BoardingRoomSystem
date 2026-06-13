@@ -43,12 +43,12 @@ Partial Class StudentDashboardForm
         '
         'lblUserName
         '
-        Me.lblUserName.BackColor = System.Drawing.Color.SeaShell
+        Me.lblUserName.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.lblUserName.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.lblUserName.Font = New System.Drawing.Font("Goudy Stout", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblUserName.Location = New System.Drawing.Point(12, 9)
         Me.lblUserName.Name = "lblUserName"
-        Me.lblUserName.Size = New System.Drawing.Size(600, 60)
+        Me.lblUserName.Size = New System.Drawing.Size(508, 43)
         Me.lblUserName.TabIndex = 2
         Me.lblUserName.Text = "Welcome , [Name]"
         Me.lblUserName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -208,6 +208,7 @@ Partial Class StudentDashboardForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.SystemColors.ButtonHighlight
         Me.BackgroundImage = Global.BoardingRoomSystem.My.Resources.Resources.Watercolor_Water_Sea_LinkedIn_Article_Cover_Image
         Me.ClientSize = New System.Drawing.Size(1018, 792)
         Me.Controls.Add(Me.Label1)
